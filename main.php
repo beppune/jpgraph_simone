@@ -1,10 +1,5 @@
 <?php
 
-function remove_value(&$array, $value) {
-  $i = array_search($value, $array, true);
-  if($i) array_splice($array, $i, 1);
-}
-
 function add_unique_value(&$array, $value) {
   $i = array_search($value, $array, true);
   if( !$i ) $array[] = $value;
@@ -17,14 +12,16 @@ $Servizi = array();
 $valorizzati = array();
 $dafare = array();
 
-$csv = file("data_copy.txt");
+$csv = file("data.txt");
 
-$STARTORA = $CHECK_ORA = (explode(';' ,$csv[0]))[0];
+$STARTORA = $CHECK_ORA = substr( (explode(';' ,$csv[0]))[0], -5 );
+
+$Orari[] = $STARTORA;
 
 foreach( $csv as $key=>$value) {
   $line = explode(';', $value);
 
-  $ora = $line[0];
+  $ora = substr( $line[0], -5);
   $nome_servizio = $line[1];
   $valore = intval($line[2]);
   
@@ -41,7 +38,7 @@ foreach( $csv as $key=>$value) {
   }
 
   if( !array_key_exists($nome_servizio, $Servizi) ) {
-    $Servizi[$nome_servizio] = array_fill(0, count($Orari), '-');
+    $Servizi[$nome_servizio] = array_fill(0, count($Orari)-1, '-');
   }
   array_push( $Servizi[$nome_servizio], $valore );
   add_unique_value($valorizzati, $nome_servizio);
@@ -57,8 +54,6 @@ foreach($nonvalorizzati as $n) {
   $Servizi[$n][] = '-';
 }
 
-$Orari = array_merge(array($STARTORA), $Orari);
+//$Orari = array_merge(array($STARTORA), $Orari);
 
 print_r($Servizi);
-print_r($dafare);
-print_r($Orari);
