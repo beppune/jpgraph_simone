@@ -1,0 +1,15 @@
+2020-12-03 08:00;NewDocUploadOutputPostel;10
+2020-12-03 08:00;oracolo_verifica;15
+2020-12-03 08:00;posteit_getUserDataByTaxCode;5
+2020-12-03 08:00;anag_anagraficacliente;20
+2020-12-03 08:00;ORCHCensimentoAnagraficaBusiness_17.7;20
+2020-12-03 08:15;NewDocUploadOutputPostel;20
+2020-12-03 08:15;oracolo_verifica;30
+2020-12-03 08:15;posteit_getUserDataByTaxCode;15
+2020-12-03 08:15;anag_anagraficacliente;40
+2020-12-03 08:15;ORCHCensimentoAnagraficaBusiness_17.7;20
+2020-12-03 08:30;NewDocUploadOutputPostel;30
+2020-12-03 08:30;oracolo_verifica;60
+2020-12-03 08:30;posteit_getUserDataByTaxCode;50
+2020-12-03 08:30;anag_anagraficacliente;60
+2020-12-03 08:30;ORCHCensimentoAnagraficaBusiness_17.7;100
