@@ -19,7 +19,7 @@ $dafare = array();
 
 $csv = file("data_copy.txt");
 
-$CHECK_ORA = (explode(';' ,$csv[0]))[0];
+$STARTORA = $CHECK_ORA = (explode(';' ,$csv[0]))[0];
 
 foreach( $csv as $key=>$value) {
   $line = explode(';', $value);
@@ -46,9 +46,9 @@ foreach( $csv as $key=>$value) {
   array_push( $Servizi[$nome_servizio], $valore );
   add_unique_value($valorizzati, $nome_servizio);
 
-  /*if( $valore >= 30 && !in_array($nome_servizio, $dafare) ) {
+  if( $valore >= 30 && !in_array($nome_servizio, $dafare) ) {
     $dafare[] = $nome_servizio;
-  }*/
+  }
 
 }
 
@@ -57,4 +57,8 @@ foreach($nonvalorizzati as $n) {
   $Servizi[$n][] = '-';
 }
 
+$Orari = array_merge(array($STARTORA), $Orari);
+
 print_r($Servizi);
+print_r($dafare);
+print_r($Orari);
